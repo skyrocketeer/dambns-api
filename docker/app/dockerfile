@@ -1,0 +1,23 @@
+FROM node:13-alpine
+
+RUN mkdir -p /usr/app
+
+WORKDIR /usr/app
+
+COPY . /usr/app
+
+# COPY ["package.json", "yarn.lock"] /usr/app
+
+RUN npm install
+
+# RUN npm install --development --silent
+
+RUN adduser -D -u 501 appuser -G jimmy
+
+RUN chown -R duypham:jimmy /app
+
+USER appuser
+
+RUN npm install -g pm2
+# CMD ["npm", "run", "start"]
+CMD ["pm2-runtime", "ecosystem.config.js", "--env", "development"]

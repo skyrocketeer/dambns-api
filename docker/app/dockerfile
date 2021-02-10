@@ -4,10 +4,12 @@ RUN mkdir -p /usr/app
 
 WORKDIR /usr/app
 
-COPY . /usr/app
+COPY . .
 
-COPY ["package.json", "yarn.lock"] /usr/app
+#COPY ["./package.json", "./yarn.lock"] /usr/app
 
+RUN rm /usr/local/bin/yarnpkg
+RUN rm /usr/local/bin/yarn
 RUN npm install -g yarn
 
 RUN yarn install
@@ -20,6 +22,7 @@ RUN yarn install
 
 # USER appuser
 
-RUN yarn add global pm2
-# CMD ["yarn", "dev"]
-CMD ["pm2-runtime", "ecosystem.config.js", "--env", "development"]
+RUN yarn global add pm2
+RUN yarn add sequelize-cli
+
+CMD ["yarn migrate &&", "pm2-runtime", "ecosystem.config.js"]

@@ -8,21 +8,10 @@ COPY . .
 
 #COPY ["./package.json", "./yarn.lock"] /usr/app
 
-RUN rm /usr/local/bin/yarnpkg
-RUN rm /usr/local/bin/yarn
-RUN npm install -g yarn
-
-RUN yarn install
-
-# RUN npm install --development --silent
-
-# RUN adduser -D -u 501 appuser -G jimmy
-
-# RUN chown -R duypham:jimmy /app
-
-# USER appuser
+# RUN rm /usr/local/bin/yarnpkg
+# RUN rm /usr/local/bin/yarn
+# RUN npm install -g yarn
 
 RUN yarn global add pm2
-RUN yarn add sequelize-cli
-RUN yarn migrate
-CMD ["pm2-runtime", "ecosystem.config.js"]
+
+CMD ["sh","init_script.sh"]

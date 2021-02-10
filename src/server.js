@@ -9,7 +9,7 @@ dotenv.config();
 const app = express();
 
 const corsOptions = {
-  origin: ['https://dambns.vercel.app','http://localhost:8000'],
+  origin: ['https://dambns.vercel.app','http://localhost:8000', 'https://rutque.dambns.com/'],
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 

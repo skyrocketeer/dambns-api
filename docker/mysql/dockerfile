@@ -1,6 +1,6 @@
 FROM mysql:5.7.22
 
-COPY initdb.sql /docker-entrypoint-initdb.d/
+COPY initdb.sql /docker-entrypoint-initdb.d/:rw
 
 RUN ln -sf /usr/share/zoneinfo/Asia/Hanoi /etc/localtime
 

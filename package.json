@@ -1,0 +1,39 @@
+{
+  "name": "dambns-api",
+  "version": "1.0.0",
+  "description": "Api for DamBns marketing",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skyrocketeer/dambns-api.git"
+  },
+  "keywords": [
+    "express"
+  ],
+  "author": "Jimmy",
+  "license": "ISC",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development node index",
+    "dev": "cross-env NODE_ENV=development nodemon --delay 1.5",
+    "migrate": "node node_modules/db-migrate/bin/db-migrate"
+  },
+  "bugs": {
+    "url": "https://github.com/skyrocketeer/dambns-api/issues"
+  },
+  "homepage": "https://github.com/skyrocketeer/dambns-api#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "dayjs": "^1.10.4",
+    "dotenv": "^8.2.0",
+    "errorhandler": "^1.5.1",
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.5.0"
+  },
+  "devDependencies": {
+    "morgan": "^1.9.1",
+    "nodemon": "^2.0.4",
+    "sequelize-cli": "^6.2.0"
+  }
+}

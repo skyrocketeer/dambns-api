@@ -13,7 +13,7 @@
   "author": "Jimmy",
   "license": "ISC",
   "scripts": {
-    "start": "yarn install && cross-env NODE_ENV=development node index",
+    "start": "cross-env NODE_ENV=production node index",
     "dev": "cross-env NODE_ENV=development nodemon --delay 1.5",
     "migrate": "npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
   },

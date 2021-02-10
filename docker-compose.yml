@@ -1,11 +1,13 @@
 version: '3.1'
 
 services:
-  # app:
-  #   container_name: node_app
-  #   build: 
-  #     context: ./docker
-  #     dockerfile: app/dockerfile
+  app:
+    container_name: node_app
+    build: 
+      context: .
+      dockerfile: ./docker/app/dockerfile
+    networks: 
+      - app-network
   nginx:
     image: nginx:alpine
     container_name: webserver_nginx

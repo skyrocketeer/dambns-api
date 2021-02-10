@@ -15,7 +15,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development node index",
     "dev": "cross-env NODE_ENV=development nodemon --delay 1.5",
-    "migrate": "node node_modules/db-migrate/bin/db-migrate"
+    "migrate": "npx sequelize-cli db:migrate && npx sequelize-cli npx db:seed:all"
   },
   "bugs": {
     "url": "https://github.com/skyrocketeer/dambns-api/issues"

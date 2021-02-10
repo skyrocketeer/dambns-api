@@ -14,4 +14,6 @@ COPY . .
 
 RUN yarn global add pm2
 
-CMD ["sh","init_script.sh"]
+RUN yarn install
+
+CMD ["pm2-runtime","ecosystem.config.js"]

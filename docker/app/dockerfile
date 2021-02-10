@@ -6,17 +6,19 @@ WORKDIR /usr/app
 
 COPY . /usr/app
 
-# COPY ["package.json", "yarn.lock"] /usr/app
+COPY ["package.json", "yarn.lock"] /usr/app
+
+RUN npm install -g yarn
 
 RUN yarn install
 
 # RUN npm install --development --silent
 
-RUN adduser -D -u 501 appuser -G jimmy
+# RUN adduser -D -u 501 appuser -G jimmy
 
-RUN chown -R duypham:jimmy /app
+# RUN chown -R duypham:jimmy /app
 
-USER appuser
+# USER appuser
 
 RUN yarn add global pm2
 # CMD ["yarn", "dev"]

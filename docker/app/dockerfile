@@ -8,7 +8,7 @@ COPY . /usr/app
 
 # COPY ["package.json", "yarn.lock"] /usr/app
 
-RUN npm install
+RUN yarn install
 
 # RUN npm install --development --silent
 
@@ -18,6 +18,6 @@ RUN chown -R duypham:jimmy /app
 
 USER appuser
 
-RUN npm install -g pm2
-# CMD ["npm", "run", "start"]
+RUN yarn add global pm2
+# CMD ["yarn", "dev"]
 CMD ["pm2-runtime", "ecosystem.config.js", "--env", "development"]
